@@ -19,13 +19,13 @@ public class Application {
 			
 		SparkSession spark = SparkSession.builder()
 		        .appName("Learning Spark SQL Dataframe API")
-		        .master("local") // <--- need to remove this line to run on a live cluster
+		        .master("local") // remove this line to run on a live cluster
 		        .getOrCreate();
 		
 		  
-//		 String redditFile = "s3n://your-bucket-name/Reddit_2011-large";
+//		 String redditFile = "s3n://bucket-name/Reddit-large";
 		 
-		 String redditFile = "/file/on/your/computer/Reddit_2007-small"; // <- change your file location
+		 String redditFile = "/file/on/your/computer/Reddit_2007-small"; // change your file location
 		 
 		    Dataset<Row> redditDf = spark.read().format("json")
 		        .option("inferSchema", "true") // Make sure to use string version of true
